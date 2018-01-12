@@ -1,0 +1,8 @@
+version: '3'
+services:
+  pushping:
+    image: fanout/pushpin
+    environment:
+      - "target=docker.for.mac.localhost:3000,over_http"
+    ports:
+      - 3001:7999

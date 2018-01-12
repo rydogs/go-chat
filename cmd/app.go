@@ -1,12 +1,13 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
+	"net/http"
 	"os"
 
+	"github.com/go-chat/web"
+	"github.com/go-chat/web/middleware"
 	"github.com/urfave/negroni"
-	"github.com/newrelic/go-agent"
 )
 
 func main() {
@@ -16,19 +17,10 @@ func main() {
 		port = "3000"
 	}
 
-	config := newrelic.NewConfig("go-chat", newrelicKey)
-	app, err := newrelic.NewApplication(config)
-	if (err != nil) {
-		fmt.Println("Failed to load new relic agent")
-	}
-
-	mux := http.NewServeMux()
-	mux.HandleFunc(newrelic.WrapHandleFunc(app, "/", func(w http.ResponseWriter, req *http.Request) {
-		fmt.Fprintf(w, "Welcome to the home page!")
-	}))
-
 	n := negroni.Classic() // Includes some default middlewares
-	n.UseHandler(mux)
+	n.Use(middleware.NewRelic("go-chat", newrelicKey))
+	n.UseHandler(web.Handlers())
 
-	http.ListenAndServe(":" + port, n)
+	http.ListenAndServe(":"+port, n)
+	fmt.Printf("Server listening on port: %s", port)
 }
