@@ -25,3 +25,7 @@
   go-version = "go1.9"
   install = [ "./cmd/..." ]
   ensure = "true"
+
+[[constraint]]
+  name = "github.com/dgrijalva/jwt-go"
+  version = "2.7.0"

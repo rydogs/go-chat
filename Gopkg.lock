@@ -2,6 +2,24 @@
 
 
 [[projects]]
+  name = "github.com/dgrijalva/jwt-go"
+  packages = ["."]
+  revision = "268038b363c7a8d7306b8e35bf77a1fde4b0c402"
+  version = "v2.7.0"
+
+[[projects]]
+  name = "github.com/fanout/go-gripcontrol"
+  packages = ["."]
+  revision = "4f60bb520c4e6ce0520f79a8e882ba7aa8286ac3"
+  version = "1.0.1"
+
+[[projects]]
+  name = "github.com/fanout/go-pubcontrol"
+  packages = ["."]
+  revision = "37d5e09163ceb5ff833f2101687a259fca223c81"
+  version = "1.0.2"
+
+[[projects]]
   name = "github.com/newrelic/go-agent"
   packages = [".","internal","internal/cat","internal/jsonx","internal/logger","internal/sysinfo","internal/utilization"]
   revision = "f5bce3387232559bcbe6a5f8227c4bf508dac1ba"
@@ -16,6 +34,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "df9e618b94cdc5e59e8823f4cfe63d3229cfd8c84f847d05cb5999349b3248e8"
+  inputs-digest = "e20366e2ab72d0bc27d8a11774514d17054390e897256ea349bf204a3da3c659"
   solver-name = "gps-cdcl"
   solver-version = 1
